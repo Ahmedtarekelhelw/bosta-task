@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "Bosta_Task": "تاسك بوسطه"
+  },
+  "header": {
+    "Home": "الرئيسيه",
+    "Prices": "الاسعار",
+    "Call_Sales": "كلم المبيعات",
+    "ENG": "عربي",
+    "Login": "تسجيل الدخول",
+    "Track_Shipment": "تتبع شحنتك",
+    "Track_Your_Shipment": "تتبع شحنتك",
+    "Tracking_No": "رقم التتبع"
+  },
+  "step": {
+    "shipment_No": "رقم الشحنه",
+    "last_update": "اخر تحديث",
+    "merchant_name": "اسم التاجر",
+    "delivering_at": "موعد التسليم خلال",
+    "CANCELLED": "تم الغاء الشحنه",
+    "DELIVERED": "تم تسليم الشحنه",
+    "DELIVERED_TO_SENDER": "لم يتم تسليم الشحنه"
+  }
+}

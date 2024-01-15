@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "Bosta_Task": "Bosta Task"
+  },
+  "header": {
+    "Home": "Home",
+    "Prices": "Prices",
+    "Call_Sales": "Call Sales",
+    "ENG": "ENG",
+    "Login": "Login",
+    "Track_Shipment": "Track Shipment",
+    "Track_Your_Shipment": "Track Your Shipment",
+    "Tracking_No": "Tracking No."
+  },
+  "step": {
+    "shipment_No": "Shipment No",
+    "last_update": "Last Update",
+    "merchant_name": "Merchant Name",
+    "delivering_at": "Delivering At",
+    "CANCELLED": "Cancelled",
+    "DELIVERED": "Delivered",
+    "DELIVERED_TO_SENDER": "Delivered To Sender"
+  }
+}
