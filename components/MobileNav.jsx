@@ -32,7 +32,7 @@ const MobileNav = ({ links }) => {
         style={{
           [dir]: open ? 0 : "1000px",
         }}
-        className={`fixed w-full h-full flex text-${dir} px-14 py-5  flex-col md:hidden  bg-white top-[64px] z-20 transition-all duration-300`}
+        className={`fixed w-full h-full flex text-${dir} px-8 py-5  flex-col md:hidden  bg-white top-[64px] z-20 transition-all duration-300`}
       >
         {links.map((link, i) => {
           const lang = i === links.length - 1;
@@ -46,7 +46,9 @@ const MobileNav = ({ links }) => {
               {lang ? (
                 <Button
                   title={link}
-                  className={`text-[#e30613] w-full text-${dir}`}
+                  className={`text-[#e30613] w-full ${
+                    dir === "left" ? "text-left" : "text-right"
+                  }`}
                   path={locale === "ar" ? "en" : "ar"}
                 />
               ) : (
