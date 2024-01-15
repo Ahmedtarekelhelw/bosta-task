@@ -6,9 +6,7 @@ const Step = ({ title, info, loading, color }) => {
       {loading ? (
         <div className="w-52 animate-pulse  h-3 rounded-md mt-2 bg-slate-200 " />
       ) : (
-        <h3
-          className={`font-bold ${color ? `text-[${color}]` : "text-black"} `}
-        >
+        <h3 style={{ color }} className={`font-bold `}>
           {info}
         </h3>
       )}
