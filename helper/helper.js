@@ -2,7 +2,7 @@ export const Translate = (translator, data) => {
   if (Array.isArray(data)) return data.map((key) => translator(key));
   const translatedObj = {};
   Object.entries(data).forEach(([key, value]) => {
-    translatedObj[key] = translator[value];
+    translatedObj[key] = translator(value);
   });
 
   return translatedObj;

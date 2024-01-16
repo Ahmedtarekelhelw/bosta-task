@@ -18,11 +18,14 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
     if (track_num) fetchData(track_num);
   }, [track_num]); // eslint-disable-line
 
-  const statusColor = {
-    DELIVERED: "#4BB543",
-    CANCELLED: "#e30613",
-    DELIVERED_TO_SENDER: "#ffc107",
-  };
+  const statusColor = useMemo(
+    () => ({
+      DELIVERED: "#4BB543",
+      CANCELLED: "#e30613",
+      DELIVERED_TO_SENDER: "#ffc107",
+    }),
+    []
+  );
 
   const completed = data?.CurrentStatus?.state === "DELIVERED" ? true : false;
 
@@ -30,7 +33,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
     () => [
       {
         title: `${StepTitle[0]}. ${track_num || "N/A"}`,
-        info: StepStatus[data?.CurrentStatus?.state] || "N/A",
+        info: StepStatus[data.CurrentStatus?.state] || "N/A",
         color: statusColor[data?.CurrentStatus?.state],
       },
       {
@@ -50,7 +53,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
           : "N/A",
       },
     ],
-    [data]
+    [data, track_num, StepStatus, statusColor, StepTitle]
   );
 
   return (
