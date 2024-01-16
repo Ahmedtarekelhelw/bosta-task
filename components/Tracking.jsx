@@ -53,7 +53,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
     <div className="border rounded-md  mt-10  flex  md:flex-col">
       {/* shipment-info */}
       <div
-        className={`shipment-info border-b mb-5 p-5 text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center ${reverseFlex} justify-between `}
+        className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
       >
         {StepInfo.map((step, i) => (
           <Step
@@ -67,7 +67,9 @@ const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
       </div>
 
       {/* shipment-progress  */}
-      <div className={`shipment-progress flex p-5 pb-16  ${reverseFlex}`}>
+      <div
+        className={`shipment-progress md:flex p-5 pb-16  ${reverseFlex} hidden`}
+      >
         <Progress
           index={1}
           completed={completed}

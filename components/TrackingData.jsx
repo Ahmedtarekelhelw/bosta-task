@@ -7,6 +7,7 @@ import Image from "next/image";
 import useDirection from "@/hooks/useDirection";
 import { useTrackingData } from "@/context/TrackingDataContext";
 import moment from "moment";
+
 const TrackingData = ({ trackingData, tableHeaders }) => {
   const { dir } = useDirection();
   const { data } = useTrackingData();
