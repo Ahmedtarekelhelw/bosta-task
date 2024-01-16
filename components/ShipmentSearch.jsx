@@ -10,7 +10,7 @@ const ShipmentSearch = ({ dir }) => {
     <div
       className={`${
         locale === "ar" ? "left-0" : "right-0"
-      } px-10 py-8  bg-white rounded-md absolute -0 top-[-200px]  shadow-md text-md  transition-all duration-200 group-hover:top-[80px]  font-medium`}
+      } px-10 py-8  bg-white z-50 rounded-md absolute  top-[-200px]  shadow-md text-md  transition-all duration-200 group-hover:top-[80px]  font-medium`}
     >
       <h3 className="mb-2" style={{ textAlign: dir }}>
         {t("Track_Your_Shipment")}
