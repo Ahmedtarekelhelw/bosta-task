@@ -1,15 +1,6 @@
 import { FaCheck } from "react-icons/fa6";
 
-const Progress = ({
-  index,
-  completed,
-  Icon,
-  color,
-  middle,
-  style,
-  dir,
-  text,
-}) => {
+const Progress = ({ index, completed, Icon, color, middle, style, dir }) => {
   const isLastStep = index === 4;
   const isStepThree = index === 3;
 
@@ -46,7 +37,6 @@ const Progress = ({
         >
           {iconStatus ? <FaCheck size={15} /> : Icon}
         </div>
-        {/* <div className="absolute -bottom-12 font-bold ">{text}</div> */}
       </div>
 
       {middle && (

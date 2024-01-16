@@ -85,8 +85,17 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
         <Stepper
           completed={completed}
           color={statusColor[data?.CurrentStatus?.state]}
-          StepsText={StepsText}
         />
+
+        <div
+          className={` mb-5 p-5 pt-1 md:text-${dir} hidden md:flex  gap-5 md:gap-0  md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
+        >
+          {StepsText.map((step, i) => (
+            <h3 key={i} className="font-bold">
+              {step}
+            </h3>
+          ))}
+        </div>
       </div>
     </>
   );
