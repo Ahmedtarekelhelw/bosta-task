@@ -10,11 +10,17 @@ import Progress from "./Progress";
 import { TfiTruck } from "react-icons/tfi";
 import { FaTruck } from "react-icons/fa";
 import { FaPersonCircleCheck } from "react-icons/fa6";
+import { useTrackingData } from "@/context/TrackingDataContext";
+import { useEffect } from "react";
 
 const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
   const { track_num } = useSearch();
   const { reverseFlex, dir } = useDirection();
-  const { data, loading, error } = useFetch(track_num);
+  const { data, loading, error, fetchData } = useTrackingData();
+
+  useEffect(() => {
+    if (track_num) fetchData(track_num);
+  }, [track_num]); // eslint-disable-line
 
   const statusColor = {
     DELIVERED: "#4BB543",
@@ -71,7 +77,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
         <Progress
           index={2}
           middle
-          style={`${dir}-[70%]`}
+          style={dir === "left" ? "left-[60%]" : "right-[60%]"}
           completed={completed}
           color={statusColor[data?.CurrentStatus?.state]}
           text={StepsText[1]}
@@ -79,7 +85,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
         <Progress
           index={3}
           middle
-          style={dir === "left" ? "right-[55%]" : "left-[55%]"}
+          style={dir === "left" ? "right-[60%]" : "left-[60%]"}
           completed={completed}
           Icon={
             dir === "right" ? <TfiTruck size={20} /> : <FaTruck size={20} />

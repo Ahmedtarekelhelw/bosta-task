@@ -24,5 +24,15 @@
     "sh_received_from_merchant": "Order is received at Bosta",
     "sh_on_the_way": "Order is out for delivery",
     "sh_delivered": "Order is delivered"
+  },
+  "tracking_info": {
+    "Delivery_address": "Delivery address",
+    "shipment_problem": "Is there a problem with your shipment ?",
+    "Report_a_problem": "Report a problem",
+    "Shipment_details": "Shipment details",
+    "hub": "Hub",
+    "date": "Date",
+    "state": "State",
+    "time": "Time"
   }
 }

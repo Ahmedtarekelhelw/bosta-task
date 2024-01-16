@@ -24,5 +24,15 @@
     "sh_received_from_merchant": "تم استلام الشحنه من التاجر",
     "sh_on_the_way": "الشحنه خرجت للتسليم",
     "sh_delivered": "تم التسليم"
+  },
+  "tracking_info": {
+    "Delivery_address": "عنوان التسليم",
+    "shipment_problem": "هل يوجد مشكله في شحنتك ؟",
+    "Report_a_problem": "ابلاغ عن مشكله",
+    "Shipment_details": "تفاصيل الشحنه",
+    "hub": "الفرع",
+    "date": "التاريخ",
+    "state": "تفاصيل",
+    "time": "الوقت"
   }
 }
