@@ -7,5 +7,5 @@ export const handleTracking = async (formData) => {
   const locale = await getLocale();
 
   const trackNum = formData.get("tracking_Number");
-  redirect(`/${locale}?track_num=${trackNum}`);
+  if (trackNum) redirect(`/${locale}?track_num=${trackNum}`);
 };
