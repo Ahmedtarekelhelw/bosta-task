@@ -19,6 +19,10 @@
     "delivering_at": "موعد التسليم خلال",
     "CANCELLED": "تم الغاء الشحنه",
     "DELIVERED": "تم تسليم الشحنه",
-    "DELIVERED_TO_SENDER": "لم يتم تسليم الشحنه"
+    "DELIVERED_TO_SENDER": "لم يتم تسليم الشحنه",
+    "sh_created": "تم انشاء الشحنه",
+    "sh_received_from_merchant": "تم استلام الشحنه من التاجر",
+    "sh_on_the_way": "الشحنه خرجت للتسليم",
+    "sh_delivered": "تم التسليم"
   }
 }

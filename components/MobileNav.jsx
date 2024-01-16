@@ -52,7 +52,7 @@ const MobileNav = ({ links }) => {
                   path={locale === "ar" ? "en" : "ar"}
                 />
               ) : (
-                <Link href="/" className="block w-full">
+                <Link href={`/${locale}`} className="block w-full">
                   {link}
                 </Link>
               )}

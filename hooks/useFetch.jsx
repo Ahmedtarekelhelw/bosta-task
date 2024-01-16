@@ -23,7 +23,11 @@ const useFetch = (id) => {
       }
     };
 
-    fetchData();
+    if (id) {
+      fetchData();
+    } else {
+      setLoading(false);
+    }
   }, [id]);
   return { data, loading, error };
 };

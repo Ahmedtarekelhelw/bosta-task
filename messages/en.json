@@ -19,6 +19,10 @@
     "delivering_at": "Delivering At",
     "CANCELLED": "Cancelled",
     "DELIVERED": "Delivered",
-    "DELIVERED_TO_SENDER": "Delivered To Sender"
+    "DELIVERED_TO_SENDER": "Delivered To Sender",
+    "sh_created": "Your order is created",
+    "sh_received_from_merchant": "Order is received at Bosta",
+    "sh_on_the_way": "Order is out for delivery",
+    "sh_delivered": "Order is delivered"
   }
 }

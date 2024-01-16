@@ -9,9 +9,10 @@ const Button = ({ title, path, className }) => {
   return (
     <button
       className={className}
-      onClick={() =>
-        router.push(`/${path}${track_num && `?track_num=${track_num}`}`)
-      }
+      onClick={() => {
+        if (path)
+          router.push(`/${path}${track_num ? `?track_num=${track_num}` : ""}`);
+      }}
     >
       {title}
     </button>

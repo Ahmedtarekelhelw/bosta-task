@@ -61,7 +61,7 @@ const Header = () => {
 
         <MobileNav links={mobileLinks} />
 
-        <button className="hidden md:block">{t("Login")}</button>
+        <Button title={t("Login")} className="hidden md:block" />
 
         <Button
           title={t("ENG")}
