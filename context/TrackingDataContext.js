@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const Context = createContext();
 
@@ -23,6 +23,9 @@ const TrackingDataContext = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    setLoading(false);
+  }, []);
   return (
     <Context.Provider value={{ data, loading, error, fetchData }}>
       {children}
