@@ -12,7 +12,7 @@ const TrackingData = ({ trackingData, tableHeaders }) => {
   const { dir } = useDirection();
   const { data } = useTrackingData();
 
-  const [rowData, setRowData] = useState();
+  const [rowData, setRowData] = useState([]);
 
   useEffect(() => {
     setRowData(data.TransitEvents);
