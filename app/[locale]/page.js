@@ -30,6 +30,7 @@ export default function Home() {
         StepTitle={StepTitle}
         StepStatus={StepStatus}
         StepsText={StepsText}
+        errMsg={t2("error")}
       />
       <TrackingData trackingData={Trackingdata} tableHeaders={TableHeaders} />
     </div>

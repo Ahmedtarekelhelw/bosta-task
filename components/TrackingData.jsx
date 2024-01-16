@@ -15,7 +15,7 @@ const TrackingData = ({ trackingData, tableHeaders }) => {
   const [rowData, setRowData] = useState([]);
 
   useEffect(() => {
-    setRowData(data.TransitEvents);
+    setRowData(data?.TransitEvents || []);
   }, [data]);
 
   const columns = useMemo(

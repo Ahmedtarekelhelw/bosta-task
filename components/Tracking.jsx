@@ -7,8 +7,9 @@ import useDirection from "@/hooks/useDirection";
 import { useTrackingData } from "@/context/TrackingDataContext";
 import { useEffect, useMemo } from "react";
 import Stepper from "./Stepper";
+import { IoIosWarning } from "react-icons/io";
 
-const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
+const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
   const { track_num } = useSearch();
   const { reverseFlex, dir } = useDirection();
   const { data, loading, error, fetchData } = useTrackingData();
@@ -53,29 +54,41 @@ const Tracking = ({ StepTitle, StepStatus, StepsText }) => {
   );
 
   return (
-    <div className="border rounded-md  mt-10  flex  md:flex-col">
-      {/* shipment-info */}
-      <div
-        className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
-      >
-        {StepInfo.map((step, i) => (
-          <Step
-            key={i}
-            title={step.title}
-            loading={loading}
-            info={step.info}
-            color={step?.color}
-          />
-        ))}
-      </div>
+    <>
+      {error && (
+        <div
+          className={` ${reverseFlex} flex items-center gap-5 mt-10 border-[#fecdca] rounded-md bg-[#ffd9d5] w-full md:w-1/2 m-auto px-5 py-10  font-semibold `}
+        >
+          <IoIosWarning size={30} className=" flex-shrink-0" />
+          <p className={` ${dir === "left" ? "text-left" : "text-right"}`}>
+            {errMsg}
+          </p>
+        </div>
+      )}
+      <div className="border rounded-md  mt-10  flex  md:flex-col">
+        {/* shipment-info */}
+        <div
+          className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
+        >
+          {StepInfo.map((step, i) => (
+            <Step
+              key={i}
+              title={step.title}
+              loading={loading}
+              info={step.info}
+              color={step?.color}
+            />
+          ))}
+        </div>
 
-      {/* shipment-progress  */}
-      <Stepper
-        completed={completed}
-        color={statusColor[data?.CurrentStatus?.state]}
-        StepsText={StepsText}
-      />
-    </div>
+        {/* shipment-progress  */}
+        <Stepper
+          completed={completed}
+          color={statusColor[data?.CurrentStatus?.state]}
+          StepsText={StepsText}
+        />
+      </div>
+    </>
   );
 };
 

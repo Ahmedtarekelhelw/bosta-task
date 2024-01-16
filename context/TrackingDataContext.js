@@ -11,6 +11,7 @@ const TrackingDataContext = ({ children }) => {
 
   const fetchData = async (id) => {
     try {
+      setError("");
       setLoading(true);
       const res = await axios.get(
         `https://tracking.bosta.co/shipments/track/${id}`
@@ -18,6 +19,7 @@ const TrackingDataContext = ({ children }) => {
       setData(res.data);
     } catch (error) {
       setError(error.response.data.error || "Invalid tracking number!");
+      setData({});
     } finally {
       setLoading(false);
     }
