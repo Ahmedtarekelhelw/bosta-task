@@ -7,9 +7,11 @@ import Image from "next/image";
 import useDirection from "@/hooks/useDirection";
 import { useTrackingData } from "@/context/TrackingDataContext";
 import moment from "moment";
+import "moment/locale/ar";
+import { translateDate } from "@/helper/helper";
 
 const TrackingData = ({ trackingData, tableHeaders }) => {
-  const { dir } = useDirection();
+  const { dir, locale } = useDirection();
   const { data } = useTrackingData();
 
   const [rowData, setRowData] = useState([]);
@@ -17,6 +19,10 @@ const TrackingData = ({ trackingData, tableHeaders }) => {
   useEffect(() => {
     setRowData(data?.TransitEvents || []);
   }, [data]);
+
+  useEffect(() => {
+    translateDate(locale);
+  }, [locale]);
 
   const columns = useMemo(
     () => [

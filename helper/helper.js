@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const Translate = (translator, data) => {
   if (Array.isArray(data)) return data.map((key) => translator(key));
   const translatedObj = {};
@@ -6,6 +8,14 @@ export const Translate = (translator, data) => {
   });
 
   return translatedObj;
+};
+
+export const translateDate = (locale) => {
+  if (locale === "ar") {
+    moment.locale("ar");
+  } else {
+    moment.locale("en");
+  }
 };
 
 export const stepTitle = [
