@@ -46,3 +46,9 @@ export const trackingData = [
 ];
 
 export const tableHeaders = ["hub", "date", "time", "state"];
+
+export const statusColor = {
+  DELIVERED: "#4BB543",
+  CANCELLED: "#e30613",
+  DELIVERED_TO_SENDER: "#ffc107",
+};

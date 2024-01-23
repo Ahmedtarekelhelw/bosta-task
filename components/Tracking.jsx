@@ -1,13 +1,12 @@
 "use client";
-
-import moment from "moment";
-import Step from "./Step";
 import useSearch from "@/hooks/useSearch";
 import useDirection from "@/hooks/useDirection";
 import { useTrackingData } from "@/context/TrackingDataContext";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import Stepper from "./Stepper";
-import { IoIosWarning } from "react-icons/io";
+import ErrorMsg from "./ErrorMsg";
+import ShipmentInfo from "./ShipmentInfo";
+import { statusColor } from "@/helper/helper";
 
 const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
   const { track_num } = useSearch();
@@ -18,71 +17,23 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
     if (track_num) fetchData(track_num);
   }, [track_num]); // eslint-disable-line
 
-  const statusColor = useMemo(
-    () => ({
-      DELIVERED: "#4BB543",
-      CANCELLED: "#e30613",
-      DELIVERED_TO_SENDER: "#ffc107",
-    }),
-    []
-  );
-
   const completed = data?.CurrentStatus?.state === "DELIVERED" ? true : false;
-
-  const StepInfo = useMemo(
-    () => [
-      {
-        title: `${StepTitle[0]}. ${track_num || "N/A"}`,
-        info: StepStatus[data.CurrentStatus?.state] || "N/A",
-        color: statusColor[data?.CurrentStatus?.state],
-      },
-      {
-        title: StepTitle[1],
-        info: data.CurrentStatus?.timestamp
-          ? moment(data.CurrentStatus?.timestamp).utc().local().format("llll")
-          : "N/A",
-      },
-      {
-        title: StepTitle[2],
-        info: data.provider || "N/A",
-      },
-      {
-        title: StepTitle[3],
-        info: data.PromisedDate
-          ? moment(data.PromisedDate).utc().local().format("YYYY-MM-DD")
-          : "N/A",
-      },
-    ],
-    [data, track_num, StepStatus, statusColor, StepTitle]
-  );
 
   return (
     <>
       {error && (
-        <div
-          className={` ${reverseFlex} flex items-center gap-5 mt-10 border-[#fecdca] rounded-md bg-[#ffd9d5] w-full md:w-1/2 m-auto px-5 py-10  font-semibold `}
-        >
-          <IoIosWarning size={30} className=" flex-shrink-0" />
-          <p className={` ${dir === "left" ? "text-left" : "text-right"}`}>
-            {errMsg}
-          </p>
-        </div>
+        <ErrorMsg dir={dir} errMsg={errMsg} reverseFlex={reverseFlex} />
       )}
       <div className="border rounded-md  mt-10  flex  md:flex-col">
-        {/* shipment-info */}
-        <div
-          className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
-        >
-          {StepInfo.map((step, i) => (
-            <Step
-              key={i}
-              title={step.title}
-              loading={loading}
-              info={step.info}
-              color={step?.color}
-            />
-          ))}
-        </div>
+        <ShipmentInfo
+          loading={loading}
+          StepTitle={StepTitle}
+          StepStatus={StepStatus}
+          track_num={track_num}
+          data={data}
+          dir={dir}
+          reverseFlex={reverseFlex}
+        />
 
         {/* shipment-progress  */}
         <Stepper
