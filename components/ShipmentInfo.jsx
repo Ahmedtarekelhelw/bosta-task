@@ -42,7 +42,7 @@ const ShipmentInfo = ({
 
   return (
     <div
-      className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex flex-col gap-5 md:gap-0 md:flex-row md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
+      className={`shipment-info border-b mb-5 p-5 md:text-${dir} flex  gap-5 md:gap-0 flex-col md:items-center w-full md:w-auto text-center md:flex-row  justify-around `}
     >
       {StepInfo.map((step, i) => (
         <Step

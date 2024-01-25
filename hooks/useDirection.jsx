@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 const useDirection = () => {
   const { locale } = useParams();
   let dir = locale === "ar" ? "right" : "left";
-  let reverseFlex = locale === "ar" && "flex-row-reverse";
+  let reverseFlex = locale === "ar" ? "flex-row-reverse" : "flex-row";
 
   return { locale, reverseFlex, dir };
 };

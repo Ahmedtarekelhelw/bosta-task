@@ -24,7 +24,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
       {error && (
         <ErrorMsg dir={dir} errMsg={errMsg} reverseFlex={reverseFlex} />
       )}
-      <div className="border rounded-md  mt-10  flex  md:flex-col">
+      <div className="border rounded-md  mt-10  flex  md:flex-col ">
         <ShipmentInfo
           loading={loading}
           StepTitle={StepTitle}
@@ -39,9 +39,10 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
         <Stepper
           completed={completed}
           color={statusColor[data?.CurrentStatus?.state]}
+          StepsText={StepsText}
         />
 
-        <div
+        {/* <div
           className={` mb-5 p-5 pt-1 md:text-${dir} hidden md:flex  gap-5 md:gap-0  md:items-center w-full md:w-auto text-center  ${reverseFlex} justify-between `}
         >
           {StepsText.map((step, i) => (
@@ -49,7 +50,7 @@ const Tracking = ({ StepTitle, StepStatus, StepsText, errMsg }) => {
               {step}
             </h3>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );
