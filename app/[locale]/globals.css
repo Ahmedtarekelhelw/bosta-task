@@ -6,6 +6,7 @@
   display: none;
 }
 
-.css-1hv8oq8-MuiStepLabel-label {
+.MuiStepLabel-label {
   font-weight: bold !important;
+  font-family: __Cairo_f22647;
 }
