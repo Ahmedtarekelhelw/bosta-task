@@ -50,7 +50,7 @@ const ShipmentDetails = ({ tableHeaders, title }) => {
   return (
     <div className="ag-theme-quartz md:flex-[2.5] w-full md:w-1/2 ">
       <h3
-        className={`text-gray-500 ${
+        className={`text-gray-500 text-[16px] ${
           dir === "left" ? "text-left" : "text-right"
         } text-gray-500 font-semibold mb-3`}
       >

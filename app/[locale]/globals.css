@@ -10,3 +10,7 @@
   font-weight: bold !important;
   font-family: __Cairo_f22647 !important;
 }
+
+[class*="ag-theme-"] {
+  font-family: __Cairo_f22647 !important;
+}
